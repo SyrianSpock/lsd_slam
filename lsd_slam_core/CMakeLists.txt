@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen REQUIRED)
 find_package(X11 REQUIRED)
+find_package(OpenCV REQUIRED)
 include(cmake/FindG2O.cmake)
 include(cmake/FindSuiteParse.cmake)
 
@@ -96,7 +97,7 @@ include_directories(
 
 # build shared library.
 add_library(lsdslam SHARED ${SOURCE_FILES})
-target_link_libraries(lsdslam ${FABMAP_LIB} ${G2O_LIBRARIES} ${catkin_LIBRARIES} csparse cxsparse X11)
+target_link_libraries(lsdslam ${FABMAP_LIB} ${G2O_LIBRARIES} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} csparse cxsparse X11)
 #rosbuild_link_boost(lsdslam thread)
 
 
@@ -110,5 +111,3 @@ add_executable(dataset src/main_on_images.cpp)
 target_link_libraries(dataset lsdslam ${catkin_LIBRARIES} ${G2O_LIBRARIES})
 
 # TODO add INSTALL
-
-

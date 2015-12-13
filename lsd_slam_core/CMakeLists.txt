@@ -42,7 +42,7 @@ generate_dynamic_reconfigure_options(
 catkin_package(
   LIBRARIES lsdslam
   DEPENDS Eigen SuiteSparse
-  DEPENDS libg2o 
+  DEPENDS libg2o
 )
 
 # SSE flags
@@ -52,7 +52,7 @@ add_definitions("-DENABLE_SSE")
 # Also add some useful compiler flag
 set(CMAKE_CXX_FLAGS
    "${CMAKE_CXX_FLAGS} ${SSE_FLAGS} -march=native -std=c++0x"
-) 
+)
 
 # Set source files
 set(lsd_SOURCE_FILES
@@ -86,7 +86,7 @@ set(SOURCE_FILES
 
 include_directories(
   include
-  ${EIGEN3_INCLUDE_DIR}
+  ${EIGEN_INCLUDE_DIR}
   ${PROJECT_SOURCE_DIR}/src
   ${PROJECT_SOURCE_DIR}/thirdparty/Sophus
   ${CSPARSE_INCLUDE_DIR} #Has been set by SuiteParse
